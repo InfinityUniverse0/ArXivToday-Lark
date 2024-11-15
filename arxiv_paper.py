@@ -80,7 +80,17 @@ def deduplicate_papers(papers, file_path):
             # Filter out the duplicated papers by id
             content_id = set(d['id'] for d in content)
             papers = [d for d in papers if d['id'] not in content_id]
-    return papers
+    if len(set(d['id'] for d in papers)) == len(papers):
+        return papers
+    # Deduplicate papers while maintaining the order
+    # **Note**: Used in the case where multiple categories are involved
+    papers_id = set()
+    deduplicated_papers = []
+    for paper in papers:
+        if paper['id'] not in papers_id:
+            papers_id.add(paper['id'])
+            deduplicated_papers.append(paper)
+    return deduplicated_papers
 
 
 def prepend_to_json_file(file_path, data):
