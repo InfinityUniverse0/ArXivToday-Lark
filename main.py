@@ -2,9 +2,7 @@
 Main Script
 """
 
-import time
 import datetime
-import schedule
 from arxiv_paper import get_latest_papers, filter_papers_by_keyword, deduplicate_papers, prepend_to_json_file
 from lark_post import post_to_lark_webhook
 
@@ -45,9 +43,11 @@ if __name__ == '__main__':
     # Run the task immediately
     task()
 
-    # Schedule the task to run every day at 10:17
-    schedule.every().day.at("10:17").do(task)  # TODO: Change the time for your own need
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    ### Uncomment the following code to use `schedule` to run the task periodically ###
+    # import time
+    # import schedule
+    # # Schedule the task to run every day at 10:17
+    # schedule.every().day.at("10:17").do(task)  # TODO: Change the time for your own need
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
