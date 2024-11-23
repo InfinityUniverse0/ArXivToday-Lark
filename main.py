@@ -2,6 +2,7 @@
 Main Script
 """
 
+import os
 import datetime
 from arxiv_paper import get_latest_papers, filter_papers_by_keyword, deduplicate_papers, prepend_to_json_file
 from lark_post import post_to_lark_webhook
@@ -12,7 +13,7 @@ category_list = ['cs.CL', 'cs.CV', 'cs.AI']
 keyword_list = [
     'safety', 'security', 'adversarial', 'jailbreak', 'backdoor', 'hallucination', 'victim'
 ]
-paper_file = 'papers.json'
+paper_file = os.path.join(os.path.dirname(__file__), 'papers.json')
 
 
 def task():
