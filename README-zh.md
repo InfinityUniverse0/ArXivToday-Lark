@@ -22,11 +22,11 @@
 
 ![Demo-Dark](images/demo-dark.png)
 
-## To Do
+## To Doo
 
 - [ ] 使用LLM进行更准确的论文筛选
 
-- [√] 使用LLM翻译摘要
+- [x] 使用LLM翻译摘要
 
 - [ ] LLM 预测论文影响力
 

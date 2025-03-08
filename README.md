@@ -26,7 +26,7 @@ Key highlights include automated scheduling, support for LLM-based paper filteri
 
 - [ ] Use LLMs for more accurate paper filtering.
 
-- [√] Use LLMs to translate paper abstracts.
+- [x] Use LLMs to translate paper abstracts.
 
 - [ ] Predict paper impact using LLMs.
 
