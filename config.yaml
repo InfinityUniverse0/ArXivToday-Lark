@@ -1,0 +1,15 @@
+# Configuration
+
+webhook_url: 'https://open.feishu.cn/open-apis/bot/v2/hook/xxxxx'
+template_id: 'XXXXX'  # TODO: Change to your template_id
+template_version_name: '1.0.0'  # TODO: Change to your template_version_name
+
+translation_service: "openai"  # 可选：'openai' 或 'ollama'
+
+ollama:
+  base_url: "http://localhost:11434"
+  model: "qwen2.5:7b" # TODO: Change to your model
+openai:
+  api_key: "sk-xxxxx"
+  base_url: "xxxxx"
+  model: "gpt-4o"

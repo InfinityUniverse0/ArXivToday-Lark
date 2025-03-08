@@ -5,6 +5,7 @@ Get arXiv papers
 import os
 import json
 import arxiv
+from llms import translate_abstract
 
 
 def get_latest_papers(category, max_results=100):
@@ -92,6 +93,23 @@ def deduplicate_papers(papers, file_path):
             deduplicated_papers.append(paper)
     return deduplicated_papers
 
+def translate_abstracts(papers, translation_service):
+    """
+    Translates the abstracts using the specified translation service
+    :param papers: a list of papers
+    :param translation_service: the translation service to use ('ollama' or 'openai')
+    """
+    translated_papers = []
+    for paper in papers:
+        abstract = paper["abstract"]
+        paper["zh_abstract"] = None
+        if translation_service != None:
+            zh_abstract = translate_abstract(abstract, translation_service)
+            paper["zh_abstract"] = zh_abstract
+        translated_papers.append(paper)
+        # break
+    return translated_papers
+
 
 def prepend_to_json_file(file_path, data):
     """
@@ -111,6 +129,8 @@ def prepend_to_json_file(file_path, data):
 
     with open(file_path, 'w') as f:
         json.dump(data + content, f, indent=4)
+
+
 
 
 if __name__ == '__main__':

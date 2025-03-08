@@ -26,7 +26,7 @@ Key highlights include automated scheduling, support for LLM-based paper filteri
 
 - [ ] Use LLMs for more accurate paper filtering.
 
-- [ ] Use LLMs to translate paper abstracts.
+- [√] Use LLMs to translate paper abstracts.
 
 - [ ] Predict paper impact using LLMs.
 
@@ -42,7 +42,14 @@ Key highlights include automated scheduling, support for LLM-based paper filteri
    git clone https://github.com/InfinityUniverse0/ArXivToday-Lark.git
    ```
 
-2. Install the required Python packages.
+2. Create and activate aconda environment.
+
+   ```sh
+   conda create -n arxiv python=3.10
+   conda activate arxiv
+   ```
+
+3. Install the required Python packages.
 
    ```sh
    cd ArXivToday-Lark
@@ -65,10 +72,12 @@ The message card template used in the [Demo](#Demo) can be directly imported fro
 
 #### Configure Script Parameters
 
-In `config.py`, modify the following parameters based on the results of the previous steps:
+In `config.yaml`, modify the following parameters based on the results of the previous steps:
 
 1. Webhook URL of the Lark bot.
 2. ID and version number of the Lark message card template.
+3. Translation Engine Used。
+4. API Key, Base URL, and Model Name of the Translation Engine.
 
 Adjust these settings according to your specific setup.
 
@@ -146,7 +155,7 @@ This project is under the [GPL-3.0 License](LICENSE).
 
 For any questions, suggestions, or feedback, feel free to reach out:
 
-- **Email**: wtxInfinity@outlook.com
+- **Email**: wtxInfinity@outlook.com, lxmliu2002@126.com
 - **GitHub Issues**: [Issues Page](https://github.com/InfinityUniverse0/ArXivToday-Lark/issues)
 
 Feel free to contribute, report issues, or suggest improvements!

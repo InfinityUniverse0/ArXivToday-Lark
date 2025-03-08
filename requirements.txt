@@ -1,2 +1,4 @@
 requests~=2.32.3
 arxiv~=2.1.3
+pyyaml
+openai

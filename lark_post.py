@@ -5,10 +5,18 @@ HTTP POST request to Lark Webhook API
 import json
 import datetime
 import requests
-from config import CONFIG
+import yaml
+
+
+def load_config():
+    with open('config.yaml', 'r') as file:
+        return yaml.safe_load(file)
 
 
 def post_to_lark_webhook(tag, papers):
+    config = load_config()
+
+    
     headers = {
         'Content-Type': 'application/json'
     }
@@ -31,6 +39,7 @@ def post_to_lark_webhook(tag, papers):
             "title": paper['title'],
             "id": paper['id'],
             "abstract": paper['abstract'],
+            "zh_abstract": paper['zh_abstract'],
             "url": paper['url'],
             "published": paper['published']
         }
@@ -40,8 +49,8 @@ def post_to_lark_webhook(tag, papers):
     card_data = {
         "type": "template",
         "data": {
-            "template_id": CONFIG['template_id'],
-            "template_version_name": CONFIG['template_version_name'],
+            "template_id": config['template_id'],
+            "template_version_name": config['template_version_name'],
             "template_variable": {
                 "today_date": today_date,
                 "tag": tag,
@@ -58,7 +67,7 @@ def post_to_lark_webhook(tag, papers):
     }
 
     # Send HTTP POST request
-    response = requests.post(CONFIG['webhook_url'], headers=headers, data=json.dumps(data))
+    response = requests.post(config['webhook_url'], headers=headers, data=json.dumps(data))
 
     if response.status_code == 200:
         print("Request successful")

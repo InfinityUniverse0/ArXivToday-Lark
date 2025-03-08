@@ -26,7 +26,7 @@
 
 - [ ] 使用LLM进行更准确的论文筛选
 
-- [ ] 使用LLM翻译摘要
+- [√] 使用LLM翻译摘要
 
 - [ ] LLM 预测论文影响力
 
@@ -42,7 +42,14 @@
    git clone https://github.com/InfinityUniverse0/ArXivToday-Lark.git
    ```
 
-2. 安装所需的 Python 包。
+2. 创建并激活 conda 环境。
+
+   ```sh
+   conda create -n arxiv python=3.10
+   conda activate arxiv
+   ```
+
+3. 安装所需的 Python 包。
 
    ```sh
    cd ArXivToday-Lark
@@ -65,10 +72,12 @@
 
 #### 配置脚本参数
 
-在 `config.py` 中，将在前面的步骤中操作后得到的：
+在 `config.yaml` 中，将在前面的步骤中操作后得到的：
 
 1. 飞书机器人 Webhook URL
 2. 飞书消息卡片模板的 ID 与 版本号
+3. 使用的翻译引擎
+4. 翻译引擎的 api_key、base_url 以及模型名称
 
 按照你的实际情况进行修改。
 
@@ -146,7 +155,7 @@ crontab -l
 
 如有任何问题、建议或反馈，欢迎联系：
 
-- **电子邮箱**: wtxInfinity@outlook.com
+- **电子邮箱**: wtxInfinity@outlook.com, lxmliu2002@126.com
 - **GitHub 问题反馈**: [问题页面](https://github.com/InfinityUniverse0/ArXivToday-Lark/issues)
 
 欢迎贡献代码、报告问题或提出改进建议！

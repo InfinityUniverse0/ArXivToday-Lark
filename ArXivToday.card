@@ -91,6 +91,12 @@
                             "text_size": "normal"
                         },
                         {
+                            "tag": "markdown",
+                            "content": "${paper_list.zh_abstract}",
+                            "text_align": "left",
+                            "text_size": "normal"
+                        },
+                        {
                             "tag": "hr"
                         }
                     ]
@@ -209,7 +215,8 @@
                     "id": "2411.11451",
                     "abstract": "This is the Abstract of the paper. This is the Abstract of the paper. This is the Abstract of the paper. This is the Abstract of the paper. This is the Abstract of the paper.",
                     "url": "http://arxiv.org/abs/2411.11451v1",
-                    "published": "2024-11-02"
+                    "published": "2024-11-02",
+                    "zh_abstract": "这是这篇文章的摘要。这是这篇文章的摘要。这是这篇文章的摘要。这是这篇文章的摘要。这是这篇文章的摘要。"
                 },
                 {
                     "counter": 2,
@@ -217,7 +224,8 @@
                     "id": "",
                     "abstract": "",
                     "url": "",
-                    "published": ""
+                    "published": "",
+                    "zh_abstract": ""
                 },
                 {
                     "counter": 3,
@@ -225,7 +233,8 @@
                     "id": "",
                     "abstract": "",
                     "url": "",
-                    "published": ""
+                    "published": "",
+                    "zh_abstract": ""
                 }
             ],
             "structDescriptions": [
@@ -264,6 +273,12 @@
                     "name": "published",
                     "desc": "论文日期",
                     "apiName": "var_vsmjbsnms6d"
+                },
+                {
+                    "type": "text",
+                    "name": "zh_abstract",
+                    "desc": "论文中文摘要",
+                    "apiName": "var_9kxh9165bq"
                 }
             ]
         },
