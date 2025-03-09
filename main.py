@@ -5,6 +5,7 @@ Main Script
 import os
 import datetime
 from arxiv_paper import get_latest_papers, filter_papers_by_keyword, deduplicate_papers, prepend_to_json_file
+from llm_translation import translate_abstracts
 from lark_post import post_to_lark_webhook
 
 # Paper Configuration  TODO: Change paper configuration for your own need
@@ -33,6 +34,9 @@ def task():
 
     papers = deduplicate_papers(papers, paper_file)
     print('Deduplicated papers: {}'.format(len(papers)))
+
+    papers = translate_abstracts(papers)
+    print('Translated Abstracts into Chinese')
 
     prepend_to_json_file(paper_file, papers)
 
