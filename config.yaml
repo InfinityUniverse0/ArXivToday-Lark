@@ -1,15 +1,28 @@
 # Configuration
 
-webhook_url: 'https://open.feishu.cn/open-apis/bot/v2/hook/xxxxx'
+# Feishu(Lark) Bot Webhook URL
+webhook_url: 'https://open.feishu.cn/open-apis/bot/v2/hook/XXXXX'  # TODO: Change to your Webhook URL
+
+# Feishu(Lark) Card Template
 template_id: 'XXXXX'  # TODO: Change to your template_id
 template_version_name: '1.0.0'  # TODO: Change to your template_version_name
 
-translation_service: "openai"  # 可选：'openai' 或 'ollama'
 
-ollama:
-  base_url: "http://localhost:11434"
-  model: "qwen2.5:7b" # TODO: Change to your model
-openai:
-  api_key: "sk-xxxxx"
-  base_url: "xxxxx"
-  model: "gpt-4o"
+# LLM Server Config
+model: 'deepseek-r1:32b'
+base_url: 'http://localhost:11434/v1'  # NOTE: For ollama, need to add '/v1' at the end of the OLLAMA_HOST URL
+api_key: 'ollama'
+
+######### >>> LLM Server Config EXAMPLE >>> #########
+
+#### 1. For Ollama Server ####
+# model: 'qwen2.5:7b'
+# base_url: 'http://localhost:11434/v1'  # NOTE: For ollama, need to add '/v1' at the end of the OLLAMA_HOST URL
+# api_key: 'ollama'  # Any non-empty string works (Ollama does not require authentication)
+
+#### 2. For Other OpenAI SDK-Compatibale LLM Server ####
+# model: 'gpt-4o-mini'
+# base_url: 'https://api.openai.com/v1'
+# api_key: 'sk-xxxxx'
+
+######### <<< LLM Server Config EXAMPLE <<< #########

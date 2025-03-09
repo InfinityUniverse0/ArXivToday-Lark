@@ -4,11 +4,9 @@ Main Script
 
 import os
 import datetime
-from arxiv_paper import get_latest_papers, filter_papers_by_keyword, deduplicate_papers, prepend_to_json_file, translate_abstracts
+from arxiv_paper import get_latest_papers, filter_papers_by_keyword, deduplicate_papers, prepend_to_json_file
+from llm_translation import translate_abstracts
 from lark_post import post_to_lark_webhook
-import yaml
-
-
 
 # Paper Configuration  TODO: Change paper configuration for your own need
 tag = 'LLM Security'
@@ -19,17 +17,10 @@ keyword_list = [
 paper_file = os.path.join(os.path.dirname(__file__), 'papers.json')
 
 
-def load_config():
-    with open('config.yaml', 'r') as file:
-        return yaml.safe_load(file)
-
 def task():
     """
     Main task: Fetch Papers & Post to Lark Webhook
     """
-    config = load_config()
-    translation_service = config.get("translation_service", None)
-    
     today_date = datetime.date.today().strftime('%Y-%m-%d')
     print('Task: {}'.format(today_date))
 
@@ -43,10 +34,9 @@ def task():
 
     papers = deduplicate_papers(papers, paper_file)
     print('Deduplicated papers: {}'.format(len(papers)))
-    
-    papers = translate_abstracts(papers, translation_service)
-    
-    print(papers)
+
+    papers = translate_abstracts(papers)
+    print('Translated Abstracts into Chinese')
 
     prepend_to_json_file(paper_file, papers)
 

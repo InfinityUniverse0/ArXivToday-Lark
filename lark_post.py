@@ -5,18 +5,12 @@ HTTP POST request to Lark Webhook API
 import json
 import datetime
 import requests
-import yaml
-
-
-def load_config():
-    with open('config.yaml', 'r') as file:
-        return yaml.safe_load(file)
+from utils import load_config
 
 
 def post_to_lark_webhook(tag, papers):
     config = load_config()
 
-    
     headers = {
         'Content-Type': 'application/json'
     }
@@ -84,14 +78,16 @@ if __name__ == '__main__':
             'id': '1234567890',
             'abstract': 'Abstract 1',
             'url': 'https://arxiv.org/abs/1234567890',
-            'published': '2021-01-01'
+            'published': '2021-01-01',
+            'zh_abstract': None
         },
         {
             'title': 'Title 2',
             'id': '2345678901',
             'abstract': 'Abstract 2',
             'url': 'https://arxiv.org/abs/2345678901',
-            'published': '2021-01-02'
+            'published': '2021-01-02',
+            'zh_abstract': '中文摘要 2'
         }
     ]
-    post_to_lark_webhook('test', [])
+    post_to_lark_webhook('test', papers)
