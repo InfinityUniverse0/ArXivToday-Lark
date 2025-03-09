@@ -42,10 +42,10 @@ Key highlights include automated scheduling, support for LLM-based paper filteri
    git clone https://github.com/InfinityUniverse0/ArXivToday-Lark.git
    ```
 
-2. Create and activate aconda environment.
+2. Create and activate conda environment.
 
    ```sh
-   conda create -n arxiv python=3.10
+   conda create -n arxiv
    conda activate arxiv
    ```
 
@@ -76,8 +76,10 @@ In `config.yaml`, modify the following parameters based on the results of the pr
 
 1. Webhook URL of the Lark bot.
 2. ID and version number of the Lark message card template.
-3. Translation Engine Used。
-4. API Key, Base URL, and Model Name of the Translation Engine.
+3. Configuration for LLM Models (Support Ollama and other OpenAI SDK-compatible models)
+    - `model`
+    - `base_url`: When using Ollama, set this to the `OLLAMA_HOST` URL followed by '/v1'
+    - `api_key`: When using Ollama, this can be set to any non-empty string (Ollama does not require authentication)
 
 Adjust these settings according to your specific setup.
 
@@ -155,7 +157,18 @@ This project is under the [GPL-3.0 License](LICENSE).
 
 For any questions, suggestions, or feedback, feel free to reach out:
 
-- **Email**: wtxInfinity@outlook.com, lxmliu2002@126.com
+- **Email**: wtxInfinity@outlook.com
 - **GitHub Issues**: [Issues Page](https://github.com/InfinityUniverse0/ArXivToday-Lark/issues)
 
 Feel free to contribute, report issues, or suggest improvements!
+
+## Contributors
+
+- [@InfinityUniverse0](https://github.com/InfinityUniverse0)
+    - **E-mail**: [wtxInfinity@outlook.com](mailto:wtxInfinity@outlook.com)
+- [@lxmliu2002](https://github.com/lxmliu2002)
+    - **E-mail**: [lxmliu2002@126.com](mailto:lxmliu2002@126.com)
+
+<a href="https://github.com/InfinityUniverse0/ArXivToday-Lark/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=InfinityUniverse0/ArXivToday-Lark"/>
+</a>

@@ -22,7 +22,7 @@
 
 ![Demo-Dark](images/demo-dark.png)
 
-## To Doo
+## To Do
 
 - [ ] 使用LLM进行更准确的论文筛选
 
@@ -45,7 +45,7 @@
 2. 创建并激活 conda 环境。
 
    ```sh
-   conda create -n arxiv python=3.10
+   conda create -n arxiv
    conda activate arxiv
    ```
 
@@ -76,8 +76,10 @@
 
 1. 飞书机器人 Webhook URL
 2. 飞书消息卡片模板的 ID 与 版本号
-3. 使用的翻译引擎
-4. 翻译引擎的 api_key、base_url 以及模型名称
+3. LLM 模型的相关配置（支持 Ollama 以及其他与 OpenAI SDK 兼容的模型调用）
+    - `model`
+    - `base_url`: 若使用 Ollama，则该项为 `OLLAMA_HOST` URL 后面拼接 '/v1'
+    - `api_key`: 若使用 Ollama，则该项可设置为任意非空字符串（Ollama 不进行鉴权）
 
 按照你的实际情况进行修改。
 
@@ -155,7 +157,18 @@ crontab -l
 
 如有任何问题、建议或反馈，欢迎联系：
 
-- **电子邮箱**: wtxInfinity@outlook.com, lxmliu2002@126.com
+- **电子邮箱**: wtxInfinity@outlook.com
 - **GitHub 问题反馈**: [问题页面](https://github.com/InfinityUniverse0/ArXivToday-Lark/issues)
 
 欢迎贡献代码、报告问题或提出改进建议！
+
+## 贡献者
+
+- [@InfinityUniverse0](https://github.com/InfinityUniverse0)
+    - **E-mail**: [wtxInfinity@outlook.com](mailto:wtxInfinity@outlook.com)
+- [@lxmliu2002](https://github.com/lxmliu2002)
+    - **E-mail**: [lxmliu2002@126.com](mailto:lxmliu2002@126.com)
+
+<a href="https://github.com/InfinityUniverse0/ArXivToday-Lark/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=InfinityUniverse0/ArXivToday-Lark"/>
+</a>
