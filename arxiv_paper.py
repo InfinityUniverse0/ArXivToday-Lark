@@ -73,7 +73,7 @@ def deduplicate_papers(papers, file_path):
     :return: the deduplicated papers
     """
     if os.path.exists(file_path):
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         if content:
             content = json.loads(content)
@@ -100,7 +100,7 @@ def prepend_to_json_file(file_path, data):
     :param data: the data to prepend
     """
     if os.path.exists(file_path):
-        with open(file_path, 'r') as f:
+        with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         if content:
             content = json.loads(content)
@@ -109,8 +109,8 @@ def prepend_to_json_file(file_path, data):
     else:
         content = []
 
-    with open(file_path, 'w') as f:
-        json.dump(data + content, f, indent=4)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        json.dump(data + content, f, indent=4, ensure_ascii=False)
 
 
 if __name__ == '__main__':
