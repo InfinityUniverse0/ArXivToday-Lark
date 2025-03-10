@@ -2,3 +2,4 @@ requests
 arxiv
 pyyaml
 openai
+tqdm

@@ -3,6 +3,7 @@ Use LLM for Translation
 """
 
 import re
+from tqdm import tqdm
 from utils import load_config, get_llm_response
 
 
@@ -29,7 +30,7 @@ def translate_abstracts(papers: list):
     :return: the translated papers
     """
     config = load_config()
-    for paper in papers:
+    for paper in tqdm(papers, desc='Translating Abstracts'):
         abstract = paper["abstract"]
         zh_abstract = translate_abstract(abstract, config)
         paper["zh_abstract"] = None
